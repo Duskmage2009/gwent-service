@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Ghoul",
+    "deckName": "Monster Swarm",
+    "provision": 5,
+    "power": 3,
+    "type": "Unit",
+    "faction": "Monsters",
+    "description": "Deploy: Consume a unit in your graveyard and boost self by its power"
+  },
+  {
+    "name": "Nekker",
+    "deckName": "Monster Swarm",
+    "provision": 4,
+    "power": 4,
+    "type": "Unit",
+    "faction": "Monsters",
+    "description": "Whenever you play an Ogroid, summon this unit from your deck"
+  },
+  {
+    "name": "Werewolf",
+    "deckName": "Monster Swarm",
+    "provision": 6,
+    "power": 5,
+    "type": "Unit",
+    "faction": "Monsters",
+    "description": "Deploy: Boost self by 1 for each Beast ally"
+  },
+  {
+    "name": "Blue Stripes Scout",
+    "deckName": "Northern Tactics",
+    "provision": 5,
+    "power": 4,
+    "type": "Unit",
+    "faction": "Northern Realms",
+    "description": "Deploy: Boost an ally by 1"
+  },
+  {
+    "name": "Reinforced Ballista",
+    "deckName": "Northern Tactics",
+    "provision": 7,
+    "power": 3,
+    "type": "Unit",
+    "faction": "Northern Realms",
+    "description": "Order: Deal 2 damage. Charge: 2"
+  },
+  {
+    "name": "Viper Witcher",
+    "deckName": "Nilfgaard Control",
+    "provision": 6,
+    "power": 4,
+    "type": "Unit",
+    "faction": "Nilfgaard",
+    "description": "Deploy: Apply 2 poison to an enemy unit"
+  },
+  {
+    "name": "Tourney Joust",
+    "deckName": "Nilfgaard Control",
+    "provision": 5,
+    "power": 0,
+    "type": "Special",
+    "faction": "Nilfgaard",
+    "description": "Damage an enemy unit by 4"
+  },
+  {
+    "name": "Dryad Ranger",
+    "deckName": "Scoia'tael Harmony",
+    "provision": 5,
+    "power": 3,
+    "type": "Unit",
+    "faction": "Scoia'tael",
+    "description": "Harmony: Boost self by 1"
+  },
+  {
+    "name": "Waters of Brokilon",
+    "deckName": "Scoia'tael Harmony",
+    "provision": 6,
+    "power": 0,
+    "type": "Special",
+    "faction": "Scoia'tael",
+    "description": "Boost all units in your hand by 1"
+  },
+  {
+    "name": "An Craite Warrior",
+    "deckName": "Skellige Warriors",
+    "provision": 5,
+    "power": 5,
+    "type": "Unit",
+    "faction": "Skellige",
+    "description": "Bloodthirst 2: Boost self by 2"
+  },
+  {
+    "name": "Svalblod Ravager",
+    "deckName": "Skellige Warriors",
+    "provision": 8,
+    "power": 6,
+    "type": "Unit",
+    "faction": "Skellige",
+    "description": "Deploy: Damage self by 1, then damage an enemy unit by 3"
+  },
+  {
+    "name": "Witch Hunter",
+    "deckName": "Syndicate Coins",
+    "provision": 5,
+    "power": 4,
+    "type": "Unit",
+    "faction": "Syndicate",
+    "description": "Fee 3: Damage an enemy unit by 3"
+  },
+  {
+    "name": "Street Urchins",
+    "deckName": "Syndicate Coins",
+    "provision": 4,
+    "power": 3,
+    "type": "Unit",
+    "faction": "Syndicate",
+    "description": "Profit 2"
+  },
+  {
+    "name": "Ale of the Ancestors",
+    "deckName": "Neutral Mix",
+    "provision": 7,
+    "power": 0,
+    "type": "Special",
+    "faction": "Neutral",
+    "description": "Boost 3 allied units by 3"
+  },
+  {
+    "name": "Royal Decree",
+    "deckName": "Neutral Mix",
+    "provision": 10,
+    "power": 0,
+    "type": "Special",
+    "faction": "Neutral",
+    "description": "Play a unit from your deck"
+  }
+]
