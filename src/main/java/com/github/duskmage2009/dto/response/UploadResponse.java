@@ -1,4 +1,4 @@
-package com.github.duskmage2009.dto.request.response;
+package com.github.duskmage2009.dto.response;
 
 
 import lombok.AllArgsConstructor;

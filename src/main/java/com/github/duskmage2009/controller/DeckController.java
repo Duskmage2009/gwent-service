@@ -3,7 +3,7 @@ package com.github.duskmage2009.controller;
 import com.github.duskmage2009.dto.request.CreateDeckRequest;
 import com.github.duskmage2009.dto.request.UpdateDeckRequest;
 
-import com.github.duskmage2009.dto.request.response.DeckResponse;
+import com.github.duskmage2009.dto.response.DeckResponse;
 import com.github.duskmage2009.service.DeckService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

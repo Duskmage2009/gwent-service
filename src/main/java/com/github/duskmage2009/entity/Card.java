@@ -29,7 +29,7 @@ public class Card {
     @Column(nullable = false, length = 200)
     private String name;
 
-    // ✅ Many Cards -> One Deck
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "deck_id", nullable = false)
     private Deck deck;
@@ -42,11 +42,11 @@ public class Card {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 50)
-    private CardType type;  // ✅ Использует отдельный enum
+    private CardType type;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 50)
-    private Faction faction;  // ✅ Использует отдельный enum
+    private Faction faction;
 
     @Column(length = 500)
     private String description;

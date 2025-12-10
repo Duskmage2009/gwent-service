@@ -3,7 +3,7 @@ package com.github.duskmage2009.service;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.duskmage2009.dto.request.response.UploadResponse;
+import com.github.duskmage2009.dto.response.UploadResponse;
 import com.github.duskmage2009.entity.Card;
 import com.github.duskmage2009.entity.CardType;
 import com.github.duskmage2009.entity.Deck;
@@ -91,7 +91,7 @@ public class UploadService {
     @lombok.Data
     public static class CardUploadDto {
         private String name;
-        private String deckName;  // ✅ Ищем колоду по имени
+        private String deckName;
         private Integer provision;
         private Integer power;
         private CardType type;

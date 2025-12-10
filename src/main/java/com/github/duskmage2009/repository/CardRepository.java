@@ -15,15 +15,8 @@ import java.util.List;
 @Repository
 public interface CardRepository extends JpaRepository<Card, Long> {
 
-    /**
-     * Находит все карты для конкретной колоды
-     */
     List<Card> findByDeckId(Long deckId);
 
-    /**
-     * Пагинация с фильтрацией по deck, type, minPower
-     * ✅ Фильтрация на уровне БД для производительности
-     */
     @Query("SELECT c FROM Card c WHERE " +
             "(:deckId IS NULL OR c.deck.id = :deckId) AND " +
             "(:type IS NULL OR c.type = :type) AND " +
@@ -35,9 +28,6 @@ public interface CardRepository extends JpaRepository<Card, Long> {
             Pageable pageable
     );
 
-    /**
-     * Для генерации отчета - возвращает все карты без пагинации
-     */
     @Query("SELECT c FROM Card c WHERE " +
             "(:deckId IS NULL OR c.deck.id = :deckId) AND " +
             "(:type IS NULL OR c.type = :type) AND " +
@@ -48,14 +38,8 @@ public interface CardRepository extends JpaRepository<Card, Long> {
             @Param("minPower") Integer minPower
     );
 
-    /**
-     * Удаляет все карты для конкретной колоды
-     * (полезно если нужно каскадное удаление)
-     */
+
     void deleteByDeckId(Long deckId);
 
-    /**
-     * Подсчитывает количество карт в колоде
-     */
     long countByDeckId(Long deckId);
 }

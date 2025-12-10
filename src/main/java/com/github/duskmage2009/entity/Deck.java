@@ -2,6 +2,7 @@ package com.github.duskmage2009.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -28,7 +29,7 @@ public class Deck {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 50)
-    private Faction faction;  // ✅ Использует отдельный enum
+    private Faction faction;
 
     @Column(name = "leader_ability", length = 200)
     private String leaderAbility;

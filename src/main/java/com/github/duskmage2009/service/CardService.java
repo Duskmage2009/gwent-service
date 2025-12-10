@@ -5,9 +5,9 @@ import com.github.duskmage2009.dto.request.CardListRequest;
 import com.github.duskmage2009.dto.request.CreateCardRequest;
 import com.github.duskmage2009.dto.request.UpdateCardRequest;
 
-import com.github.duskmage2009.dto.request.response.CardListItemResponse;
-import com.github.duskmage2009.dto.request.response.CardListResponse;
-import com.github.duskmage2009.dto.request.response.CardResponse;
+import com.github.duskmage2009.dto.response.CardListItemResponse;
+import com.github.duskmage2009.dto.response.CardListResponse;
+import com.github.duskmage2009.dto.response.CardResponse;
 import com.github.duskmage2009.entity.Card;
 import com.github.duskmage2009.entity.CardType;
 import com.github.duskmage2009.entity.Deck;

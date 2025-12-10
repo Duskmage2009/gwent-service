@@ -85,7 +85,7 @@ class DeckControllerIntegrationTest extends BaseIntegrationTest {
         request.setName("AB"); // Too short
         request.setFaction(Faction.MONSTERS);
         request.setLeaderAbility("Test");
-        request.setProvisionLimit(50); // Too low
+        request.setProvisionLimit(50);
 
         mockMvc.perform(post("/api/decks")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -98,7 +98,7 @@ class DeckControllerIntegrationTest extends BaseIntegrationTest {
     @Test
     void shouldReturnConflictForDuplicateDeckName() throws Exception {
         CreateDeckRequest request = new CreateDeckRequest();
-        request.setName("Monster Swarm"); // Already exists in liquibase
+        request.setName("Monster Swarm");
         request.setFaction(Faction.MONSTERS);
         request.setLeaderAbility("Test Ability");
         request.setProvisionLimit(165);
@@ -132,7 +132,6 @@ class DeckControllerIntegrationTest extends BaseIntegrationTest {
 
     @Test
     void shouldDeleteDeck() throws Exception {
-        // Создаем тестовую колоду
         CreateDeckRequest createRequest = new CreateDeckRequest();
         createRequest.setName("Deck To Delete");
         createRequest.setFaction(Faction.NEUTRAL);
@@ -147,11 +146,9 @@ class DeckControllerIntegrationTest extends BaseIntegrationTest {
 
         Long deckId = objectMapper.readTree(response).get("id").asLong();
 
-        // Удаляем
         mockMvc.perform(delete("/api/decks/" + deckId))
                 .andExpect(status().isNoContent());
 
-        // Проверяем что удалилась
         mockMvc.perform(get("/api/decks/" + deckId))
                 .andExpect(status().isNotFound());
     }

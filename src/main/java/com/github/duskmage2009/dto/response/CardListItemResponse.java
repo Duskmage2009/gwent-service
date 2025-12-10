@@ -1,5 +1,4 @@
-package com.github.duskmage2009.dto.request.response;
-
+package com.github.duskmage2009.dto.response;
 
 
 import com.github.duskmage2009.entity.Card;
@@ -10,37 +9,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CardResponse {
+public class CardListItemResponse {
 
     private Long id;
     private String name;
-    private DeckResponse deck;
+    private String deckName;
     private Integer provision;
     private Integer power;
     private CardType type;
     private Faction faction;
-    private String description;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
-    public static CardResponse from(Card card) {
-        return CardResponse.builder()
+    public static CardListItemResponse from(Card card) {
+        return CardListItemResponse.builder()
                 .id(card.getId())
                 .name(card.getName())
-                .deck(DeckResponse.from(card.getDeck()))
+                .deckName(card.getDeck().getName())
                 .provision(card.getProvision())
                 .power(card.getPower())
                 .type(card.getType())
                 .faction(card.getFaction())
-                .description(card.getDescription())
-                .createdAt(card.getCreatedAt())
-                .updatedAt(card.getUpdatedAt())
                 .build();
     }
 }

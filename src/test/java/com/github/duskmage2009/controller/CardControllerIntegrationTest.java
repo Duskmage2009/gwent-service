@@ -58,7 +58,7 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
     void shouldReturnNotFoundForInvalidDeckId() throws Exception {
         CreateCardRequest request = new CreateCardRequest();
         request.setName("Test Card");
-        request.setDeckId(999L); // Non-existent deck
+        request.setDeckId(999L);
         request.setProvision(5);
         request.setPower(4);
         request.setType(CardType.UNIT);
@@ -73,7 +73,6 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
 
     @Test
     void shouldGetCardById() throws Exception {
-        // Создаем карту
         CreateCardRequest createRequest = new CreateCardRequest();
         createRequest.setName("Card To Get");
         createRequest.setDeckId(1L);
@@ -90,7 +89,6 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
 
         Long cardId = objectMapper.readTree(response).get("id").asLong();
 
-        // Получаем карту
         mockMvc.perform(get("/api/cards/" + cardId))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(cardId))
@@ -101,7 +99,6 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
 
     @Test
     void shouldUpdateCard() throws Exception {
-        // Создаем карту
         CreateCardRequest createRequest = new CreateCardRequest();
         createRequest.setName("Card To Update");
         createRequest.setDeckId(1L);
@@ -118,10 +115,10 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
 
         Long cardId = objectMapper.readTree(response).get("id").asLong();
 
-        // Обновляем карту
+
         UpdateCardRequest updateRequest = new UpdateCardRequest();
         updateRequest.setName("Updated Card");
-        updateRequest.setDeckId(2L); // Меняем колоду
+        updateRequest.setDeckId(2L);
         updateRequest.setProvision(7);
         updateRequest.setPower(6);
         updateRequest.setType(CardType.SPECIAL);
@@ -158,11 +155,9 @@ class CardControllerIntegrationTest extends BaseIntegrationTest {
 
         Long cardId = objectMapper.readTree(response).get("id").asLong();
 
-        // Удаляем
         mockMvc.perform(delete("/api/cards/" + cardId))
                 .andExpect(status().isNoContent());
 
-        // Проверяем что удалилась
         mockMvc.perform(get("/api/cards/" + cardId))
                 .andExpect(status().isNotFound());
     }

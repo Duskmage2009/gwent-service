@@ -4,7 +4,7 @@ package com.github.duskmage2009.service;
 import com.github.duskmage2009.dto.request.CreateDeckRequest;
 import com.github.duskmage2009.dto.request.UpdateDeckRequest;
 
-import com.github.duskmage2009.dto.request.response.DeckResponse;
+import com.github.duskmage2009.dto.response.DeckResponse;
 import com.github.duskmage2009.entity.Deck;
 import com.github.duskmage2009.exception.DuplicateResourceException;
 import com.github.duskmage2009.exception.ResourceNotFoundException;
