@@ -304,13 +304,13 @@ mvn test -Dtest=*IntegrationTest
 ### Тестове покриття
 
 Усі endpoints покриті інтеграційними тестами:
-- ✅ CRUD операції для Deck та Card
-- ✅ Валідація некоректних даних
-- ✅ Обробка помилок (404, 409, 400)
-- ✅ Пагінація та фільтрація
-- ✅ Генерація Excel звітів
-- ✅ Імпорт даних з JSON
-- ✅ Перевірка унікальності імен колод
+-  CRUD операції для Deck та Card
+-  Валідація некоректних даних
+-  Обробка помилок (404, 409, 400)
+-  Пагінація та фільтрація
+-  Генерація Excel звітів
+-  Імпорт даних з JSON
+-  Перевірка унікальності імен колод
 
 Тести використовують **TestContainers** з реальною PostgreSQL в Docker.
 
@@ -390,47 +390,5 @@ spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.xml
 spring.servlet.multipart.max-file-size=10MB
 spring.servlet.multipart.max-request-size=10MB
 ```
-
-##  Усунення неполадок
-
-### Помилка підключення до БД
-```
-Caused by: org.postgresql.util.PSQLException: Connection refused
-```
-
-**Рішення:**
-1. Перевірте, що PostgreSQL запущено: `sudo systemctl status postgresql`
-2. Перевірте порт: `sudo netstat -tulpn | grep 5432`
-3. Перевірте credentials в `application.properties`
-
-### Liquibase помилки
-```
-liquibase.exception.LockException: Could not acquire change log lock
-```
-
-**Рішення:**
-```sql
-DELETE FROM databasechangeloglock;
-```
-
-### Помилка при імпорті
-```
-Deck not found: Monster Swarm
-```
-
-**Рішення:** Переконайтеся, що імена колод у JSON точно збігаються з іменами в БД (регістр враховується).
-
-### Помилка з enum'ами у Liquibase
-
-**ВАЖЛИВО:** У SQL міграціях enum значення мають бути записані ВЕЛИКИМИ ЛІТЕРАМИ:
--  `'Monsters'` - неправильно
--  `'MONSTERS'` - правильно
-
-Приклад правильного INSERT:
-```sql
-INSERT INTO decks (name, faction, leader_ability, provision_limit) 
-VALUES ('Monster Swarm', 'MONSTERS', 'Overwhelming Hunger', 165);
-```
-
 
 
