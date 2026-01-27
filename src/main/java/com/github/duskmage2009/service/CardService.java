@@ -1,10 +1,8 @@
 package com.github.duskmage2009.service;
 
-
 import com.github.duskmage2009.dto.request.CardListRequest;
 import com.github.duskmage2009.dto.request.CreateCardRequest;
 import com.github.duskmage2009.dto.request.UpdateCardRequest;
-
 import com.github.duskmage2009.dto.response.CardListItemResponse;
 import com.github.duskmage2009.dto.response.CardListResponse;
 import com.github.duskmage2009.dto.response.CardResponse;
@@ -12,6 +10,7 @@ import com.github.duskmage2009.entity.Card;
 import com.github.duskmage2009.entity.CardType;
 import com.github.duskmage2009.entity.Deck;
 import com.github.duskmage2009.exception.ResourceNotFoundException;
+import com.github.duskmage2009.dto.messaging.EmailNotificationProducer;
 import com.github.duskmage2009.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +32,7 @@ public class CardService {
 
     private final CardRepository cardRepository;
     private final DeckService deckService;
+    private final EmailNotificationProducer emailNotificationProducer;
 
     public CardResponse getCardById(Long id) {
         log.debug("Getting card by id: {}", id);
@@ -58,6 +58,19 @@ public class CardService {
 
         Card savedCard = cardRepository.save(card);
         log.info("Created card with id: {}", savedCard.getId());
+
+        try {
+            emailNotificationProducer.sendCardCreatedNotification(
+                    savedCard.getName(),
+                    deck.getName(),
+                    savedCard.getPower(),
+                    savedCard.getFaction().getDisplayName(),
+                    savedCard.getType().getDisplayName()
+            );
+            log.info("Email notification queued for card: {}", savedCard.getName());
+        } catch (Exception e) {
+            log.error("Failed to send email notification for card: {}", savedCard.getName(), e);
+        }
 
         return CardResponse.from(savedCard);
     }
